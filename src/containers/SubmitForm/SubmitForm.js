@@ -35,7 +35,7 @@ const SubmitForm = props => {
     },
     {
       title: 'Experience with any other disciplines :',
-      value: [...props.data.expSelect]
+      value: [...props.data.expSelect].join('; ')
     },
     {
       title: 'Interested in working location(s) :',

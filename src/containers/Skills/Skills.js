@@ -52,7 +52,7 @@ export class Skills extends Component {
     locations: [
       {
         type: 'checkbox',
-        value: 'Austin Texas',
+        value: 'Austin, Texas',
         width: '100'
       },
       {
@@ -112,47 +112,52 @@ export class Skills extends Component {
     this.setState({
       disciplineSelect: e.target.value
     })
+
+    this.props.storeSkills(
+      {
+        disciplineSelect: e.target.value
+      },
+      this.state.locationsSelect.length > 0
+    )
   }
 
   expChange = e => {
     const value = e.target.value
-    e.target.checked
-      ? this.setState({ expSelect: [...this.state.expSelect, value] })
-      : this.setState({
-          expSelect: this.state.expSelect.filter(el => el !== value)
-        })
+    const expSelect = e.target.checked
+      ? [...this.state.expSelect, value]
+      : this.state.expSelect.filter(el => el !== value)
+    this.setState({
+      expSelect: expSelect
+    })
+
+    this.props.storeSkills(
+      {
+        expSelect: expSelect
+      },
+      this.state.locationsSelect.length > 0
+    )
   }
 
   locChange = e => {
     const value = e.target.value
-    e.target.checked
-      ? this.setState({
-          locationsSelect: [...this.state.locationsSelect, value]
-        })
-      : this.setState({
-          locationsSelect: this.state.locationsSelect.filter(el => el !== value)
-        })
+    const locationsSelect = e.target.checked
+      ? [...this.state.locationsSelect, value]
+      : this.state.locationsSelect.filter(el => el !== value)
+
+    this.setState({
+      locationsSelect: locationsSelect
+    })
+
+    this.props.storeSkills(
+      {
+        locationsSelect: locationsSelect
+      },
+      locationsSelect.length > 0
+    )
   }
 
   handleNext = e => {
-    this.storeDataOnApp()
-    if (this.state.locationsSelect.length > 0) {
-      this.props.history.push('/portfolio')
-    } else alert('Please select your interested location')
-  }
-
-  componentWillUnmount() {
-    this.storeDataOnApp()
-    
-  }
-
-  storeDataOnApp = () => {
-    const data = {
-      disciplineSelect: this.state.disciplineSelect,
-      expSelect: this.state.expSelect,
-      locationsSelect: this.state.locationsSelect
-    }
-    this.props.storeSkills(data, this.state.locationsSelect.length > 0)
+    this.props.history.push('/portfolio')
   }
 
   render() {
@@ -215,7 +220,11 @@ export class Skills extends Component {
           </div>
         </div>
 
-        <button className="submit-button" onClick={this.handleNext}>
+        <button
+          className="submit-button"
+          onClick={this.handleNext}
+          disabled={this.state.locationsSelect.length <= 0}
+        >
           Next
         </button>
       </section>
