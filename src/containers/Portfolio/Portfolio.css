@@ -1,0 +1,30 @@
+
+.portfolio {
+  color: white;
+}
+
+.portfolio > .flex-box span {
+  margin-bottom: 25px;
+}
+
+.portfolio > .flex-box > div.etc > textarea {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #6f7878;
+  background: none;
+  resize: both;
+  line-height: 1em;
+  width: 98%;
+  height: 100%;
+  color: #ccc;
+}
+
+.submit-button {
+  margin: 4em 0;
+  border: none;
+  background-color: #00b1f2;
+  color: white;
+  height: 50px; width: 150px;
+  cursor: pointer;
+  font-size: 1em;
+}

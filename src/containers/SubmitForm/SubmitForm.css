@@ -1,0 +1,16 @@
+.displayContent,.displayTitle {
+  margin:0;
+}
+.displayTitle{
+  font-weight: 600;
+  margin-top: 15px;
+  padding-bottom: px;
+  border-bottom: 1px solid;
+  width: fit-content;
+  margin-bottom: 3px;
+  color: #ccc;
+}
+.displayContent{
+  margin-bottom: 5px;
+  color: #ccc;
+}
