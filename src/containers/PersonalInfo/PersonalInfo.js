@@ -38,8 +38,7 @@ export class PersonalInfo extends Component {
         inputType: 'email',
         label: 'Email*',
         validation: {
-          required: true,
-          regex: /^\w+@\w+.\w{2,3}$/
+          required: true
         },
         valid: false
       },
@@ -49,8 +48,7 @@ export class PersonalInfo extends Component {
         inputType: 'email',
         label: 'Re-enter email*',
         validation: {
-          required: true,
-          regex: /^\w+@\w+.\w{2,3}$/
+          required: true
         },
         valid: false
       },
@@ -60,8 +58,7 @@ export class PersonalInfo extends Component {
         inputType: 'textarea',
         label: 'Address*',
         validation: {
-          required: true,
-          regex: /^[a-zA-Z1-9 ,]{1,}$/
+          required: true
         },
         valid: false
       },
